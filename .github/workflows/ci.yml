@@ -3,29 +3,15 @@ name: CI
 on:
   push:
   pull_request:
+    branches:
+      - master
   schedule:
     - cron: '0 0 * * *'
 
 jobs:
-  node14:
-    name: Node 14
-    runs-on: ubuntu-20.04
-    steps:
-      - name: checkout
-        uses: actions/checkout@v3
-      - name: checkout node
-        uses: actions/setup-node@v3
-        with:
-          node-version: '14'
-      - run: npm install
-      - run: npm run cs
-      - run: npm test -- --coverage --no-cache
-      - run: npm run infection
-        env:
-          STRYKER_DASHBOARD_API_KEY: ${{ secrets.STRYKER_DASHBOARD_API_KEY }}
   node16:
     name: Node 16
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     steps:
       - name: checkout
         uses: actions/checkout@v3
@@ -34,14 +20,10 @@ jobs:
         with:
           node-version: '16'
       - run: npm install
-      - run: npm run cs
-      - run: npm test -- --coverage --no-cache
-      - run: npm run infection
-        env:
-          STRYKER_DASHBOARD_API_KEY: ${{ secrets.STRYKER_DASHBOARD_API_KEY }}
+      - run: npm test
   node18:
     name: Node 18
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     steps:
       - name: checkout
         uses: actions/checkout@v3
@@ -50,6 +32,7 @@ jobs:
         with:
           node-version: '18'
       - run: npm install
+      - run: npm run lint
       - run: npm run cs
       - run: npm test -- --coverage --no-cache
       - run: npm run infection

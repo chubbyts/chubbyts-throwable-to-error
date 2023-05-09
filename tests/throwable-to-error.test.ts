@@ -27,7 +27,7 @@ describe('throwableToError', () => {
       e: new Array('example'),
       error: { name: 'object', message: '["example"]' },
     },
-  ])(`converts $e to error`, ({ e, error }) => {
+  ])('converts $e to error', ({ e, error }) => {
     expect(throwableToError(e)).toMatchObject(error);
   });
 });
