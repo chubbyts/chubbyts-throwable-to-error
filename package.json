@@ -1,6 +1,7 @@
 {
   "name": "@chubbyts/chubbyts-throwable-to-error",
-  "version": "1.1.1",
+  "type": "module",
+  "version": "1.2.0",
   "description": "It converts any throwable into an Error.",
   "keywords": [
     "chubbyts",
@@ -11,14 +12,14 @@
   "license": "MIT",
   "repository": "chubbyts/chubbyts-throwable-to-error",
   "scripts": {
+    "build": "rm -rf ./dist && tsc -b ./tsconfig.types.json ./tsconfig.esm.json ./tsconfig.cjs.json && node ./rename-commonjs.js",
     "cs-fix": "prettier --write src tests",
     "cs": "prettier --check src tests",
+    "infection": "stryker run",
     "lint-fix": "eslint src tests --fix",
     "lint": "eslint src tests",
-    "test": "jest",
-    "infection": "stryker run",
-    "build": "rm -Rf dist && tsc",
-    "prepare": "npm run build"
+    "prepare": "npm run build",
+    "test": "jest"
   },
   "jest": {
     "preset": "ts-jest",
@@ -41,16 +42,25 @@
   "files": [
     "dist"
   ],
+  "exports": {
+    "./*": {
+      "types": "./*.d.ts",
+      "require": "./*.cjs",
+      "import": "./*.js",
+      "default": "./*.js"
+    }
+  },
   "engines": {
     "node": ">=16"
   },
   "dependencies": {},
   "devDependencies": {
-    "@chubbyts/chubbyts-eslint": "^1.1.2",
-    "@stryker-mutator/core": "^7.1.0",
-    "@stryker-mutator/jest-runner": "^7.1.0",
+    "@chubbyts/chubbyts-eslint": "^2.0.2",
+    "@chubbyts/chubbyts-packaging": "^1.0.3",
+    "@stryker-mutator/core": "^7.1.1",
+    "@stryker-mutator/jest-runner": "^7.1.1",
     "@types/jest": "^29.5.3",
-    "@types/node": "^20.4.1",
+    "@types/node": "^20.4.4",
     "jest": "^29.6.1",
     "prettier": "^3.0.0",
     "ts-jest": "^29.1.1",
