@@ -1,7 +1,8 @@
+import { describe, expect, test } from 'vitest';
 import { throwableToError } from '../src/throwable-to-error';
 
 describe('throwableToError', () => {
-  it('do not convert', () => {
+  test('do not convert', () => {
     const error = new Error('example');
     expect(throwableToError(error)).toBe(error);
   });
