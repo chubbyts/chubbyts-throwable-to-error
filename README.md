@@ -23,19 +23,21 @@ It converts any throwable into an Error.
 
 ## Requirements
 
- * node: 16
+ * node: 18
 
 ## Installation
 
 Through [NPM](https://www.npmjs.com) as [@chubbyts/chubbyts-throwable-to-error][1].
 
 ```ts
-npm i @chubbyts/chubbyts-throwable-to-error@^1.2.1
+npm i @chubbyts/chubbyts-throwable-to-error@^2.0.0
 ```
 
 ## Usage
 
 ```ts
+import { throwableToError } from '@chubbyts/chubbyts-throwable-to-error/throwable-to-error';
+
 try {
    throw {key: 'value'};
 } catch (e) {
