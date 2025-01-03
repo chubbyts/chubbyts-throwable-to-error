@@ -1,1 +1,1 @@
-export { default } from '@chubbyts/chubbyts-eslint/eslint.config';
+export { default } from '@chubbyts/chubbyts-eslint/dist/eslint.config';
