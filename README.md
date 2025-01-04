@@ -30,7 +30,7 @@ It converts any throwable into an Error.
 Through [NPM](https://www.npmjs.com) as [@chubbyts/chubbyts-throwable-to-error][1].
 
 ```ts
-npm i @chubbyts/chubbyts-throwable-to-error@^1.3.0
+npm i @chubbyts/chubbyts-throwable-to-error@^1.3.1
 ```
 
 ## Usage
