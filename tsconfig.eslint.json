@@ -2,6 +2,7 @@
     "extends": "./tsconfig.json",
     "include": [
         "eslint.config.mjs",
+        "vitest.config.ts",
         "src",
         "tests"
     ],

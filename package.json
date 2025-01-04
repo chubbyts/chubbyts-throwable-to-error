@@ -16,7 +16,7 @@
     "cs-fix": "prettier --write src tests",
     "cs": "prettier --check src tests",
     "infection": "stryker run",
-    "lint-fix": "eslint src tests eslint.config.mjs --fix",
+    "lint-fix": "eslint src tests eslint.config.mjs vitest.config.ts --fix",
     "lint": "eslint src tests",
     "prepare": "npm run build",
     "test": "vitest"
