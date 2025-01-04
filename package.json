@@ -42,7 +42,7 @@
     "node": ">=18"
   },
   "devDependencies": {
-    "@chubbyts/chubbyts-eslint": "^3.0.1",
+    "@chubbyts/chubbyts-eslint": "^3.0.2",
     "@chubbyts/chubbyts-packaging": "^3.0.2",
     "@stryker-mutator/core": "^8.7.1",
     "@stryker-mutator/vitest-runner": "^8.7.1",
