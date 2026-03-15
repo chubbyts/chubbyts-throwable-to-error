@@ -1,7 +1,7 @@
 {
   "name": "@chubbyts/chubbyts-throwable-to-error",
   "type": "module",
-  "version": "2.0.3",
+  "version": "2.0.4",
   "description": "It converts any throwable into an Error.",
   "keywords": [
     "chubbyts",
@@ -38,7 +38,7 @@
     }
   },
   "engines": {
-    "node": ">=18"
+    "node": ">=20"
   },
   "devDependencies": {
     "@chubbyts/chubbyts-eslint": "^5.0.0",
