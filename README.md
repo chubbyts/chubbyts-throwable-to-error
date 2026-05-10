@@ -23,14 +23,14 @@ It converts any throwable into an Error.
 
 ## Requirements
 
- * node: 20
+ * node: 22
 
 ## Installation
 
 Through [NPM](https://www.npmjs.com) as [@chubbyts/chubbyts-throwable-to-error][1].
 
 ```ts
-npm i @chubbyts/chubbyts-throwable-to-error@^2.1.1
+npm i @chubbyts/chubbyts-throwable-to-error@^2.2.0
 ```
 
 ## Usage
