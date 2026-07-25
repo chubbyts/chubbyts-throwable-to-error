@@ -13,7 +13,7 @@ describe('throwableToError', () => {
     { e: true, error: { name: 'boolean', message: 'true' } },
     { e: false, error: { name: 'boolean', message: 'false' } },
     { e: 42, error: { name: 'number', message: '42' } },
-    { e: 3.14159, error: { name: 'number', message: '3.14159' } },
+    { e: Math.PI, error: { name: 'number', message: Math.PI.toString() } },
     { e: 'example', error: { name: 'string', message: 'example' } },
     {
       e: Symbol('example'),
@@ -25,7 +25,7 @@ describe('throwableToError', () => {
       error: { name: 'object', message: '{"key":"value"}' },
     },
     {
-      e: new Array('example'),
+      e: ['example'],
       error: { name: 'object', message: '["example"]' },
     },
   ])('converts $e to error', ({ e, error }) => {
