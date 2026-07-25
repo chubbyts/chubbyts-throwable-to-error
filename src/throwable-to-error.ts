@@ -3,10 +3,10 @@ export const throwableToError = (e: unknown): Error => {
     return e;
   }
 
-  const error = new Error(typeof e === 'object' ? `${JSON.stringify(e)}` : `${String(e)}`);
-  // eslint-disable-next-line functional/immutable-data
+  const error = new Error(typeof e === 'object' ? JSON.stringify(e) : String(e));
+  // oxlint-disable-next-line functional/immutable-data
   error.name = typeof e;
-  // eslint-disable-next-line functional/immutable-data
+  // oxlint-disable-next-line functional/immutable-data
   error.stack = undefined;
 
   return error;
