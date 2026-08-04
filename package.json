@@ -1,7 +1,7 @@
 {
   "name": "@chubbyts/chubbyts-throwable-to-error",
   "type": "module",
-  "version": "2.3.0",
+  "version": "2.3.1",
   "description": "It converts any throwable into an Error.",
   "keywords": [
     "chubbyts",
