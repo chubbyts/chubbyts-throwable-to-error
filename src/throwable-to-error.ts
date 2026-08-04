@@ -7,9 +7,11 @@ const throwableToMessage = (e: unknown): string => {
   try {
     // JSON.stringify / String may invoke user-defined toJSON/toString/getters, which can throw,
     // and JSON.stringify throws on circular references and returns undefined for some inputs.
-    const message: string | undefined = typeof e === 'object' ? JSON.stringify(e) : String(e);
+    if (typeof e === 'object') {
+      return JSON.stringify(e) ?? '[unserializable]';
+    }
 
-    return message ?? '[unserializable]';
+    return String(e);
   } catch {
     return '[unserializable]';
   }
