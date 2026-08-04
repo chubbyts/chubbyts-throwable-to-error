@@ -77,6 +77,12 @@ describe('throwableToError', () => {
     expect(throwableToError(e)).toMatchObject({ name: 'object', message: '[unserializable]' });
   });
 
+  test('does not truncate a message with exactly the max length', () => {
+    const e = 'A'.repeat(2048);
+
+    expect(throwableToError(e).message).toBe(e);
+  });
+
   test('truncates an oversized message', () => {
     const e = { key: 'A'.repeat(10000) };
 
