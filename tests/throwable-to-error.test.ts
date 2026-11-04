@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'vitest';
-import { throwableToError } from '../src/throwable-to-error';
+import { throwableToError } from '../src/throwable-to-error.js';
 
 describe('throwableToError', () => {
   test('do not convert', () => {
