@@ -1,7 +1,7 @@
 {
   "name": "@chubbyts/chubbyts-throwable-to-error",
   "type": "module",
-  "version": "2.3.4",
+  "version": "2.4.0",
   "description": "It converts any throwable into an Error.",
   "keywords": [
     "chubbyts",
@@ -31,10 +31,15 @@
     "dist"
   ],
   "exports": {
+    "./dist/*": {
+      "types": "./dist/*.d.ts",
+      "import": "./dist/*.js",
+      "default": "./dist/*.js"
+    },
     "./*": {
-      "types": "./*.d.ts",
-      "import": "./*.js",
-      "default": "./*.js"
+      "types": "./dist/*.d.ts",
+      "import": "./dist/*.js",
+      "default": "./dist/*.js"
     }
   },
   "engines": {

@@ -30,13 +30,13 @@ It converts any throwable into an Error.
 Through [NPM](https://www.npmjs.com) as [@chubbyts/chubbyts-throwable-to-error][1].
 
 ```ts
-npm i @chubbyts/chubbyts-throwable-to-error@^2.3.4
+npm i @chubbyts/chubbyts-throwable-to-error@^2.4.0
 ```
 
 ## Usage
 
 ```ts
-import { throwableToError } from '@chubbyts/chubbyts-throwable-to-error/dist/throwable-to-error';
+import { throwableToError } from '@chubbyts/chubbyts-throwable-to-error/throwable-to-error';
 
 try {
    throw {key: 'value'};
