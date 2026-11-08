@@ -19,18 +19,32 @@
 
 ## Description
 
-It converts any throwable into an Error.
+Converts any thrown value into an `Error`.
+
+In JavaScript, `throw` accepts anything: strings, numbers, plain objects, `null`, `undefined`, … That is why TypeScript
+types a `catch` variable as `unknown`. `throwableToError` normalizes that value into a real `Error`, so the rest of your
+code (logging, error responses, `cause` chains) can rely on `message` and `name` being present.
+
+### Why use it
+
+ * **Type safe**: turns `unknown` into `Error` without unsafe `as Error` casts.
+ * **Never throws**: circular references, throwing `toJSON` / `toString` / getters and unserializable values are handled
+   and reported as `[unserializable]` instead of crashing your error handler.
+ * **Bounded output**: messages longer than 2048 characters are truncated (suffix `...`), so a huge thrown object can't
+   flood your logs.
+ * **Keeps real errors untouched**: an `Error` (or subclass) is returned as is, the same instance with its original stack.
+ * **Tiny**: a single function, no dependencies.
 
 ## Requirements
 
- * node: 22
+ * node: >= 22
 
 ## Installation
 
 Through [NPM](https://www.npmjs.com) as [@chubbyts/chubbyts-throwable-to-error][1].
 
-```ts
-npm i @chubbyts/chubbyts-throwable-to-error@^2.4.0
+```sh
+npm i @chubbyts/chubbyts-throwable-to-error@^2.4.1
 ```
 
 ## Usage
@@ -39,11 +53,35 @@ npm i @chubbyts/chubbyts-throwable-to-error@^2.4.0
 import { throwableToError } from '@chubbyts/chubbyts-throwable-to-error/throwable-to-error';
 
 try {
-   throw {key: 'value'};
+  throw { key: 'value' };
 } catch (e) {
   const error = throwableToError(e);
+
+  error.name; // 'object'
+  error.message; // '{"key":"value"}'
 }
 ```
+
+## Behavior
+
+| Thrown value                   | `name`                    | `message`                 |
+| ------------------------------ | ------------------------- | ------------------------- |
+| `new Error('example')`         | unchanged (same instance) | unchanged (same instance) |
+| `'example'`                    | `'string'`                | `'example'`               |
+| `42`                           | `'number'`                | `'42'`                    |
+| `true`                         | `'boolean'`               | `'true'`                  |
+| `undefined`                    | `'undefined'`             | `'undefined'`             |
+| `null`                         | `'null'`                  | `'null'`                  |
+| `Symbol('example')`            | `'symbol'`                | `'Symbol(example)'`       |
+| `() => null`                   | `'function'`              | `'() => null'`            |
+| `{ key: 'value' }`             | `'object'`                | `'{"key":"value"}'`       |
+| `['example']`                  | `'object'`                | `'["example"]'`           |
+| object with circular reference | `'object'`                | `'[unserializable]'`      |
+
+ * Objects (and arrays) are serialized with `JSON.stringify`, all other values with `String`.
+ * The `name` is the `typeof` of the thrown value (`'null'` for `null`).
+ * The `stack` of a converted error is `undefined`: it would only point to `throwableToError` itself, not to the place
+   where the value was thrown.
 
 ## Copyright
 
