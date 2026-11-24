@@ -1,7 +1,7 @@
 {
   "name": "@chubbyts/chubbyts-throwable-to-error",
   "type": "module",
-  "version": "2.4.1",
+  "version": "2.4.2",
   "description": "Converts any thrown value into an Error.",
   "keywords": [
     "chubbyts",
@@ -46,18 +46,18 @@
     "node": ">=22"
   },
   "devDependencies": {
-    "@chubbyts/chubbyts-oxlint": "^1.0.2",
-    "@stryker-mutator/core": "^10.0.0",
-    "@stryker-mutator/vitest-runner": "^10.0.0",
-    "@types/node": "^26.6.5",
-    "@vitest/coverage-v8": "^4.1.12",
-    "oxlint": "^1.89.0",
-    "prettier": "^3.9.10",
+    "@chubbyts/chubbyts-oxlint": "^1.0.3",
+    "@stryker-mutator/core": "^10.1.1",
+    "@stryker-mutator/vitest-runner": "^10.1.1",
+    "@types/node": "^26.6.6",
+    "@vitest/coverage-v8": "^5.1.1",
+    "oxlint": "^1.95.0",
+    "prettier": "^3.10.1",
     "typescript": "^7.0.2",
-    "vitest": "^4.1.12"
+    "vitest": "^5.1.1"
   },
   "publishConfig": {
     "access": "public"
   },
-  "packageManager": "pnpm@11.28.6+sha512.55d90390c3b39042f1505a2697789f0256c6d95bb28bdd7cb731af1887c9f2629ef581acb9f4e4ec772024c8203c2aed22a03299b97103fdcf32668e905d0024"
+  "packageManager": "pnpm@12.23.0+sha512.02da94ffaf133f46074322afe552f90d40b5f71ae259aefbccdacc5085b1d617e98d65e0131f5748b9b67445978ee5055d7d59a473f1eef0d504854fefcd5975"
 }

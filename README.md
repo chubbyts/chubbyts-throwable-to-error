@@ -44,7 +44,7 @@ code (logging, error responses, `cause` chains) can rely on `message` and `name`
 Through [NPM](https://www.npmjs.com) as [@chubbyts/chubbyts-throwable-to-error][1].
 
 ```sh
-npm i @chubbyts/chubbyts-throwable-to-error@^2.4.1
+npm i @chubbyts/chubbyts-throwable-to-error@^2.4.2
 ```
 
 ## Usage
